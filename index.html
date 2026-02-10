@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sê¥Tƒ¦pâƒpé» GÇö Hatsune Miku</title>
+  <title>ÏƒÃªÂ¥Î˜Æ’â”‚Ï€Ã¢Æ’Ï€Ã©Â» Î“Ã‡Ã¶ Hatsune Miku</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -24,7 +24,8 @@
     .scanlines{position:fixed;inset:0;z-index:9990;pointer-events:none;
       background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px)}
 
-    .loader{position:fixed;inset:0;z-index:9999;overflow:hidden;background:radial-gradient(ellipse at center,var(--darker) 0%,#020205 100%);transition:opacity .8s ease,visibility .8s ease}
+    .loader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      background:radial-gradient(ellipse at center,var(--darker) 0%,#020205 100%);transition:opacity .8s ease,visibility .8s ease}
     .loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
     /* Animated starfield */
     .loader-stars{position:absolute;inset:0;background:radial-gradient(2px 2px at 20px 30px,rgba(57,197,187,0.4),transparent),radial-gradient(1px 1px at 50px 100px,rgba(255,64,129,0.3),transparent),radial-gradient(2px 2px at 80px 50px,rgba(124,77,255,0.3),transparent);background-size:200px 200px,150px 150px,180px 180px;animation:starDrift 200s linear infinite}
@@ -48,7 +49,7 @@
     .viz-bar:nth-child(odd){animation-duration:.4s;animation-delay:.1s}
     .viz-bar:nth-child(3n){animation-duration:.6s;animation-delay:.2s}
     @keyframes dance{from{height:5px}to{height:35px}}
-`n    `n    /* Animated starfield */`n    .loader-stars{position:absolute;inset:0;background:radial-gradient(2px 2px at 20px 30px,rgba(57,197,187,0.4),transparent),radial-gradient(1px 1px at 50px 100px,rgba(255,64,129,0.3),transparent),radial-gradient(2px 2px at 80px 50px,rgba(124,77,255,0.3),transparent);background-size:200px 200px,150px 150px,180px 180px;animation:starDrift 200s linear infinite}`n    @keyframes starDrift{to{background-position:200px 200px,-150px 150px,180px -180px}}
+
     .loader-init{font-family:'Orbitron',monospace;font-size:.7rem;color:var(--cyan);letter-spacing:.3em;text-transform:uppercase;
       margin-bottom:24px;opacity:0;animation:flicker .1s 0s 6 alternate forwards,fadeIn .5s .6s forwards}
     .loader-title{font-family:'Orbitron',monospace;font-size:3rem;font-weight:900;color:#fff;letter-spacing:.08em;
@@ -59,7 +60,7 @@
     .loader-bar{width:200px;height:2px;background:rgba(57,197,187,0.15);border-radius:2px;margin-top:32px;overflow:hidden;
       opacity:0;animation:fadeIn .5s 2s forwards}
     .loader-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--pink));border-radius:2px;
-      animation:barFill 2s 2.2s ease forwards;box-shadow:0 0 10px var(--cyan-glow)}`n    `n    /* Holographic rings */`n    .loader-rings{position:absolute;width:300px;height:300px;pointer-events:none}`n    .load-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(57,197,187,0.3);animation:spin 8s linear infinite}`n    .load-ring:nth-child(2){inset:25px;border-color:rgba(255,64,129,0.2);animation-duration:12s;animation-direction:reverse}`n    .load-ring:nth-child(3){inset:50px;border-color:rgba(124,77,255,0.15);animation-duration:15s}`n    .load-ring:nth-child(4){inset:-15px;border-style:dashed;border-color:rgba(57,197,187,0.15);animation-duration:20s}`n    @keyframes spin{to{transform:rotate(360deg)}}`n    `n    /* Scan line */`n    .scan-line{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 15px var(--cyan);opacity:0.5;animation:scan 2.5s ease-in-out infinite}`n    @keyframes scan{0%,100%{top:30%;opacity:0}10%{opacity:0.5}90%{opacity:0.5}100%{top:70%;opacity:0}}
+      animation:barFill 2s 2.2s ease forwards;box-shadow:0 0 10px var(--cyan-glow)}
     @keyframes flicker{0%{opacity:0}100%{opacity:1}}
     @keyframes fadeIn{to{opacity:1}}
     @keyframes barFill{to{width:100%}}
@@ -119,7 +120,7 @@
     @keyframes heroSlide{to{opacity:1;transform:translateY(0)}}
     @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
 
-    /* Tracks section GÇö scattered floating */
+    /* Tracks section Î“Ã‡Ã¶ scattered floating */
     .tracks-section{position:relative;z-index:1;min-height:100vh;padding:120px 0 160px;overflow:visible}
     .tracks-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
       background:linear-gradient(90deg,transparent,var(--pink),transparent)}
@@ -239,30 +240,10 @@
 <div class="scanlines"></div>
 
 <div class="loader" id="loader">
-  <div class="loader-stars"></div>
-  <div class="loader-rings">
-    <div class="load-ring"></div>
-    <div class="load-ring"></div>
-    <div class="load-ring"></div>
-    <div class="load-ring"></div>
-  </div>
-  <div class="scan-line"></div>
-  <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh">
-    <div class="loader-init">INITIALIZING SYSTEM</div>
-    <div class="loader-title">HATSUNE MIKU</div>
-    <div class="loader-sub">Virtual Diva Protocol v4.0</div>
-    <div class="audio-viz">
-      <div class="viz-bar" style="height:10px"></div>
-      <div class="viz-bar" style="height:20px"></div>
-      <div class="viz-bar" style="height:15px"></div>
-      <div class="viz-bar" style="height:25px"></div>
-      <div class="viz-bar" style="height:12px"></div>
-      <div class="viz-bar" style="height:22px"></div>
-      <div class="viz-bar" style="height:18px"></div>
-      <div class="viz-bar" style="height:28px"></div>
-    </div>
-    <div class="loader-bar"><span></span></div>
-  </div>
+  <div class="loader-init">Initializing System...</div>
+  <div class="loader-title">HATSUNE MIKU</div>
+  <div class="loader-sub">Virtual Diva Protocol v3.9</div>
+  <div class="loader-bar"><span></span></div>
 </div>
 
 <canvas id="threeCanvas"></canvas>
@@ -280,7 +261,7 @@
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-jp">sê¥Tƒ¦pâƒpé»</div>
+    <div class="hero-jp">ÏƒÃªÂ¥Î˜Æ’â”‚Ï€Ã¢Æ’Ï€Ã©Â»</div>
     <h1 class="glitch" data-text="HATSUNE MIKU">HATSUNE MIKU</h1>
     <p>The World's Virtual Diva</p>
   </div>
@@ -359,7 +340,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-/* GöÇGöÇ Custom Cursor GöÇGöÇ */
+/* Î“Ã¶Ã‡Î“Ã¶Ã‡ Custom Cursor Î“Ã¶Ã‡Î“Ã¶Ã‡ */
 (function(){
   var cursor=document.getElementById('cursor');
   var mx=-100,my=-100,cx=-100,cy=-100;
@@ -393,7 +374,7 @@
   tick();
 })();
 
-/* GöÇGöÇ Three.js Particles GöÇGöÇ */
+/* Î“Ã¶Ã‡Î“Ã¶Ã‡ Three.js Particles Î“Ã¶Ã‡Î“Ã¶Ã‡ */
 (function(){
   var canvas=document.getElementById('threeCanvas');
   var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});
@@ -434,7 +415,7 @@
   animate();
 })();
 
-/* GöÇGöÇ Scroll GöÇGöÇ */
+/* Î“Ã¶Ã‡Î“Ã¶Ã‡ Scroll Î“Ã¶Ã‡Î“Ã¶Ã‡ */
 window.addEventListener('scroll',function(){
   document.getElementById('siteHeader').classList.toggle('scrolled',window.scrollY>80);
   var cards=document.querySelectorAll('.disco-card:not(.visible)');
@@ -443,7 +424,7 @@ window.addEventListener('scroll',function(){
   }
 },{passive:true});
 
-/* GöÇGöÇ YouTube Player GöÇGöÇ */
+/* Î“Ã¶Ã‡Î“Ã¶Ã‡ YouTube Player Î“Ã¶Ã‡Î“Ã¶Ã‡ */
 var ytReady=false,ytPlayerObj=null,currentCard=null,progressInterval=null;
 var tag=document.createElement('script');tag.src='https://www.youtube.com/iframe_api';document.head.appendChild(tag);
 
